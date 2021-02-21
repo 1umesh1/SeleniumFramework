@@ -20,8 +20,9 @@ namespace Seleniumproj
     {
         public static IWebDriver driver { get; set; }
         public   HomePage HomePage { get;   set; }
+        public HomePageSE1 HomePageSE1 { get; set; }
         public BasePage BasePage { get;   set; }
-        public Assert Assert { get; set; }
+        public static Assert Assert { get; set; }
         protected ExtentReports _extent;
         protected static ExtentTest _test;
         string dir = "";
@@ -34,9 +35,10 @@ namespace Seleniumproj
             driver = new ChromeDriver(location);
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(180);
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl(credentials.url);
+            driver.Navigate().GoToUrl(credentials.url2);
              
             HomePage = new HomePage(driver );
+            HomePageSE1 = new HomePageSE1(driver);
             BasePage = new BasePage( );
             Assert = new Assert(driver, _extent);
 
